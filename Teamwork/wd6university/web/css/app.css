@@ -1,0 +1,35 @@
+.course{
+
+}
+
+.img_cart{
+  position: relative;
+}
+
+.img_cart:hover{
+  opacity: .8;
+}
+
+.cart_btn{
+  background-color: #F8C53A;
+  position: absolute;
+  bottom:0px;
+  right: 0px;
+  padding: 10px;
+  color: #000000;
+}
+
+.img_cart_link{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.price{
+  color: #F8C53A;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: right;
+}
