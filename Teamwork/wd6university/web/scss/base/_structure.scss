@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i');
+
+body{
+  font-family: $text!important;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font;
+  font-weight: bold;
+}
+
+.course{
+  padding: .6rem 1rem;
+
+  .img_cart{
+    position: relative;
+
+    &:hover{
+      opacity: .8;
+    }
+
+    .cart_btn{
+      background-color: $primary;
+      position: absolute;
+      bottom:0px;
+      right: 0px;
+      padding: 10px;
+      color: $dark;
+    }
+
+    .img_cart_link{
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+  }
+
+  .price{
+    color: $primary;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: right;
+    font-family: $font;
+  }
+}
+
+.video_list{
+  border-top: 1px solid rgba($dark, .1);
+
+  .play_btn{
+    font-size: 1.3em;
+  }
+
+  div{
+    padding: 20px 10px;
+  }
+}

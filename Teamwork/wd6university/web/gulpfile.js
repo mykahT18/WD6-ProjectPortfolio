@@ -6,12 +6,13 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var gutil = require( 'gulp-util' );
 const babel = require('gulp-babel');
+var assets  = require('postcss-assets');
 
 gulp.task('default', function() {
 
 });
 
-gulp.task('scss', function(){
+gulp.task('scss', ['assets'], function(){
 
     var processors = [
         autoprefixer({browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']}),
@@ -27,6 +28,14 @@ gulp.task('scss', function(){
     }))
 });
 
+gulp.task('assets', function () {
+  return gulp.src('source/*.css')
+  .pipe(postcss([assets({
+    loadPaths: ['node_modules/foundation-sites/scss']
+  })]))
+  .pipe(gulp.dest('./css'));
+});
+
 gulp.task('browser-sync', function(){
     browserSync.init({
         server:{
@@ -35,7 +44,7 @@ gulp.task('browser-sync', function(){
     })
 })
 
-gulp.task('watch', ['browser-sync', 'scss', 'babel'], function(){
+gulp.task('watch', ['browser-sync' ,'scss', 'babel'], function(){
     // refresh.listen()
     gulp.watch(['./**/*.scss'], ['scss'])
     gulp.watch("*.html").on("change", reload)
