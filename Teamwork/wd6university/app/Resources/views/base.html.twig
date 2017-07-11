@@ -12,35 +12,41 @@
     </head>
     <body>
 
-      <div class="top-bar">
+      {% if url == '/' %}
+      <div class="top-bar" id="home">
+      {% else %}
+      <div class="top-bar" id="site">
+      {% endif %}
+
         <div class="top-bar-left">
             <ul class="menu" data-dropdown-menu>
                 <li class="menu-text"><a href="/">WD6University</a></li>
-
-                <!-- <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/thank-you">Thank you</a></li> -->
             </ul>
         </div>
         <div class="top-bar-right">
             <ul class="menu">
               <li>
-                <a href="/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                <a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> cart </a>
+              </li>
+              <li>
+                <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i> profile </a>
+              </li>
+              <li>
+                <a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
               </li>
             </ul>
         </div>
     </div>
 
-    <div class="banner">
+    {% if url == '/' %}
+    <div id="banner">
       <img src="{{ asset('images/banner.png') }}" alt="banner" />
-
     </div>
+    {% endif %}
 
-    <div class="grid-container">
+    <main class="grid-container" id="main-cont">
         {% block body %}{% endblock %}
-    </div>
+    </main>
         {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/vendor/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/vendor/what-input.js') }}"></script>

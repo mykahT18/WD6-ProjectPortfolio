@@ -2320,6 +2320,36 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", sans-serif;
   font-weight: bold; }
 
+#home.top-bar {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1); }
+  #home.top-bar ul {
+    background-color: transparent; }
+    #home.top-bar ul a {
+      color: white; }
+
+#banner img {
+  width: 100%; }
+
+#site.top-bar {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2ecc71+0,103442+100 */
+  background: #2ecc71;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #2ecc71 0%, #103442 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#103442',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+  #site.top-bar ul {
+    background-color: transparent; }
+    #site.top-bar ul a {
+      color: white; }
+
+#main-cont {
+  margin-top: 20px; }
+
 .course {
   padding: .6rem 1rem; }
   .course .img_cart {
@@ -2352,3 +2382,28 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3em; }
   .video_list div {
     padding: 20px 10px; }
+
+#cart .price {
+  color: #F8C53A;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: right;
+  font-family: "PT Sans", sans-serif; }
+
+#cart .delete_btn {
+  color: #c0392b; }
+
+#cart .total {
+  font-weight: bold;
+  font-size: 1.3em; }
+
+#cart .price_total {
+  color: #2ecb70;
+  font-weight: bolder;
+  font-size: 1.3em; }
+
+.profile img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin: 0px auto; }

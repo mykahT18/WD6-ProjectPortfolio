@@ -13,8 +13,9 @@ class CourseController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/index.html.twig');
+        $url = $_SERVER['REQUEST_URI'];
+
+        return $this->render('pages/index.html.twig', array('url' => $url));
     }
 
     /**
@@ -22,8 +23,8 @@ class CourseController extends Controller
      */
     public function singleAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/single.html.twig');
+        $url = $_SERVER['REQUEST_URI'];
+        return $this->render('pages/single.html.twig', array('url' => $url));
     }
 
     /**
@@ -31,7 +32,26 @@ class CourseController extends Controller
      */
     public function loginAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/login.html.twig');
+        $url = $_SERVER['REQUEST_URI'];
+        return $this->render('pages/login.html.twig', array('url' => $url));
     }
+    /**
+     * @Route("/cart", name="cart")
+     */
+    public function cartAction(Request $request)
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        return $this->render('pages/cart.html.twig', array('url' => $url));
+    }
+
+    /**
+     * @Route("/profile", name="profile")
+     */
+    public function profileAction(Request $request)
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        return $this->render('pages/profile.html.twig', array('url' => $url));
+    }
+
+
 }

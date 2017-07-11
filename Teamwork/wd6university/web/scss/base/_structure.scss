@@ -10,6 +10,53 @@ h1, h2, h3, h4, h5, h6{
   font-weight: bold;
 }
 
+// -------------- header
+#home{
+  &.top-bar{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(white, .1);
+
+    & ul{
+      background-color: transparent;
+
+      & a{
+        color: white;
+      }
+    }
+  }
+}
+#banner{
+  img{
+    width: 100%;
+  }
+}
+
+#site{
+  &.top-bar{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2ecc71+0,103442+100 */
+    background: #2ecc71; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #2ecc71 0%, #103442 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #2ecc71 0%,#103442 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #2ecc71 0%,#103442 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#103442',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    & ul{
+      background-color: transparent;
+
+      & a{
+        color: white;
+      }
+    }
+  }
+}
+
+
+#main-cont{
+  margin-top: 20px;
+}
+
+
 .course{
   padding: .6rem 1rem;
 
@@ -56,5 +103,41 @@ h1, h2, h3, h4, h5, h6{
 
   div{
     padding: 20px 10px;
+  }
+}
+
+// shopping cart
+#cart{
+  .price{
+    color: $primary;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: right;
+    font-family: $font;
+  }
+
+  .delete_btn{
+    color: $alert;
+  }
+
+  .total{
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .price_total{
+    color: darken($ok, .3);
+    font-weight: bolder;
+    font-size: 1.3em;
+  }
+}
+
+// profile
+.profile{
+  img{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin: 0px auto;
   }
 }
