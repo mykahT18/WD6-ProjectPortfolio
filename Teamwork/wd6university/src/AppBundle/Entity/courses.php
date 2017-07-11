@@ -22,12 +22,6 @@ class courses
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Users", inversedBy="course")
-     * @ORM\JoinColumn(name="course_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)

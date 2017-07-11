@@ -23,10 +23,15 @@ class Users
      */
     private $id;
 
-     /**
-     * @ORM\OneToMany(targetEntity="courses", mappedBy="user")
+    /**
+     * Many User have Many Courses.
+     * @ORM\ManyToMany(targetEntity="courses")
+     * @ORM\JoinTable(name="users_courses",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="courses_id", referencedColumnName="id", unique=true)}
+     *      )
      */
-    private $course;
+    private $course_id;
 
     /**
      * @var string
