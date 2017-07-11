@@ -6,7 +6,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/foundation.min.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
 
 
     </head>
@@ -15,7 +15,7 @@
       <div class="top-bar">
         <div class="top-bar-left">
             <ul class="menu" data-dropdown-menu>
-                <li class="menu-text">WD6University</li>
+                <li class="menu-text"><a href="/">WD6University</a></li>
 
                 <!-- <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
@@ -26,9 +26,16 @@
         </div>
         <div class="top-bar-right">
             <ul class="menu">
-              <li>Login</li>
+              <li>
+                <a href="/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
             </ul>
         </div>
+    </div>
+
+    <div class="banner">
+      <img src="{{ asset('images/banner.png') }}" alt="banner" />
+
     </div>
 
     <div class="grid-container">

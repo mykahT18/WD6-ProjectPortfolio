@@ -1,5 +1,53 @@
-{% extends "layout.html" %}
+{% extends "/base.html.twig" %}
 
-{% block content %}
-    <h1>Single course</h1>
+{% block body %}
+<div class="grid-x grid-padding-x">
+  <div class="large-6 medium-6 small-auto cell course">
+    <div class="img_cart">
+      <a href="#" class="img_cart_link"></a>
+      <a href="/single" class="cart_btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> cart </a>
+      <img src="{{ asset('images/img_test.jpg') }}" alt="image course" />
+    </div>
+    <div class="grid-x">
+      <h2 class="large-auto cell">Title course</h2>
+      <div class="large-4 auto price">$10.00</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <div class="large-6 medium-6 small-auto cell course">
+    <h2 class="large-auto cell">Content Course</h2>
+
+    <ul class="no-bullet">
+      <li>
+        <div class="grid-x video_list">
+          <div class="auto cell">Video title list</div>
+          <div class="small-1 cell play_btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+        </div>
+      </li>
+      <li>
+        <div class="grid-x video_list">
+          <div class="auto cell">Video title list</div>
+          <div class="small-1 cell play_btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+        </div>
+      </li>
+      <li>
+        <div class="grid-x video_list">
+          <div class="auto cell">Video title list</div>
+          <div class="small-1 cell play_btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+        </div>
+      </li>
+      <li>
+        <div class="grid-x video_list">
+          <div class="auto cell">Video title list</div>
+          <div class="small-1 cell play_btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+
+
+</div>
 {% endblock %}

@@ -16,4 +16,22 @@ class CourseController extends Controller
         // replace this example code with whatever you need
         return $this->render('pages/index.html.twig');
     }
+
+    /**
+     * @Route("/single", name="single-course")
+     */
+    public function singleAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('pages/single.html.twig');
+    }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function loginAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('pages/login.html.twig');
+    }
 }
