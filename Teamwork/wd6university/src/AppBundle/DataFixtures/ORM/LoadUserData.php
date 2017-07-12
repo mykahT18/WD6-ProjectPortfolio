@@ -9,7 +9,7 @@ use AppBundle\Entity\courses;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
-class LoadUserData implements FixtureInterface, ContainerAwareInterface
+class LoadUserData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
