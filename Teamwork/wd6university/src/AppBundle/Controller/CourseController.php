@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use AppBundle\Entity\courses;
+
 class CourseController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class CourseController extends Controller
     public function indexAction(Request $request)
     {
         $url = $_SERVER['REQUEST_URI'];
+        $results = $this->getDoctrine()->getRepository('AppBundle:courses')->findAll();
 
-        return $this->render('pages/index.html.twig', array('url' => $url));
+        return $this->render('pages/index.html.twig', array('url' => $url, 'results' => $results));
     }
 
     /**

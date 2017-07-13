@@ -42,6 +42,19 @@ class courses
      */
     private $author;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255)
+     */
+    private $img;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", length=11)
+     */
+    private $price;
+
 
     /**
      * Get id
@@ -147,5 +160,53 @@ class courses
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     *
+     * @return courses
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set price
+     *
+     * @param \FLOAT $price
+     *
+     * @return courses
+     */
+    public function setPrice(float $price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

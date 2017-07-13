@@ -208,4 +208,38 @@ class Users
     {
         return $this->course;
     }
+
+    /**
+     * Add courseId
+     *
+     * @param \AppBundle\Entity\courses $courseId
+     *
+     * @return Users
+     */
+    public function addCourseId(\AppBundle\Entity\courses $courseId)
+    {
+        $this->course_id[] = $courseId;
+
+        return $this;
+    }
+
+    /**
+     * Remove courseId
+     *
+     * @param \AppBundle\Entity\courses $courseId
+     */
+    public function removeCourseId(\AppBundle\Entity\courses $courseId)
+    {
+        $this->course_id->removeElement($courseId);
+    }
+
+    /**
+     * Get courseId
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCourseId()
+    {
+        return $this->course_id;
+    }
 }

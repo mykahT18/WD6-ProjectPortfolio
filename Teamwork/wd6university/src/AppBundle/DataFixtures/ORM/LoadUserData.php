@@ -17,7 +17,7 @@ class LoadUserData implements FixtureInterface
         $user = new Users();
         $course = new courses();
 
-        $oneItemResult = $course->getDoctrine()->getRepository('AppBundle:courses')->find(38);
+        //$oneItemResult = $course->getDoctrine()->getRepository('AppBundle:courses')->find(38);
 
         $user->setUsername('master');
         $user->setPassword('password');
@@ -25,7 +25,7 @@ class LoadUserData implements FixtureInterface
 
         $user->setPicture('http://127.0.0.1:8000/images/Grant_Gustin.png');
 
-        $user->addCourse($oneItemResult);
+        // $user->addCourse($oneItemResult);
 
         $manager->persist($user);
         $manager->flush();
