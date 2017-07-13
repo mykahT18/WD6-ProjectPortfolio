@@ -141,3 +141,24 @@ h1, h2, h3, h4, h5, h6{
     margin: 0px auto;
   }
 }
+
+// forms
+.card-section{
+  .message-form{
+    margin-top: 10px;
+    p{
+      font-size: .8em;
+      color: lighten($dark, 30);
+      font-style: italic;
+
+      a{
+        text-decoration: underline;
+        color: $ok;
+      }
+    }
+  }
+
+  .button{
+    background-color: $ok;
+  }
+}

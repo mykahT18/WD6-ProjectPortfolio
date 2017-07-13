@@ -8,17 +8,15 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * Users
+ * User
  *
  * @ORM\Table(name="fos_user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UsersRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class Users extends BaseUser
+class User extends BaseUser
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -27,7 +25,7 @@ class Users extends BaseUser
     /**
      * Many User have Many Courses.
      * @ORM\ManyToMany(targetEntity="courses")
-     * @ORM\JoinTable(name="users_courses",
+     * @ORM\JoinTable(name="user_courses",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="courses_id", referencedColumnName="id", unique=true)}
      *      )
@@ -43,17 +41,6 @@ class Users extends BaseUser
     private $picture;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-
 
 
     /**
@@ -61,7 +48,7 @@ class Users extends BaseUser
      *
      * @param string $picture
      *
-     * @return Users
+     * @return User
      */
     public function setPicture($picture)
     {
@@ -93,7 +80,7 @@ class Users extends BaseUser
      *
      * @param \AppBundle\Entity\courses $course
      *
-     * @return Users
+     * @return User
      */
     public function addCourse(\AppBundle\Entity\courses $course)
     {

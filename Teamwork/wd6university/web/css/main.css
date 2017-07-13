@@ -2407,3 +2407,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 300px;
   border-radius: 50%;
   margin: 0px auto; }
+
+.card-section .message-form {
+  margin-top: 10px; }
+  .card-section .message-form p {
+    font-size: .8em;
+    color: #585858;
+    font-style: italic; }
+    .card-section .message-form p a {
+      text-decoration: underline;
+      color: #2ecc71; }
+
+.card-section .button {
+  background-color: #2ecc71; }

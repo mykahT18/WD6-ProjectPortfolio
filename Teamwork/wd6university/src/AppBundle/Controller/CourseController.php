@@ -13,9 +13,7 @@ class CourseController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $url = $_SERVER['REQUEST_URI'];
-
-        return $this->render('pages/index.html.twig', array('url' => $url));
+      return $this->render('pages/index.html.twig', array('home' => ''));
     }
 
     /**
@@ -23,25 +21,16 @@ class CourseController extends Controller
      */
     public function singleAction(Request $request)
     {
-        $url = $_SERVER['REQUEST_URI'];
-        return $this->render('pages/single.html.twig', array('url' => $url));
+        return $this->render('pages/single.html.twig');
     }
 
-    /**
-     * @Route("/login", name="login")
-     */
-    public function loginAction(Request $request)
-    {
-        $url = $_SERVER['REQUEST_URI'];
-        return $this->render('pages/login.html.twig', array('url' => $url));
-    }
+
     /**
      * @Route("/cart", name="cart")
      */
     public function cartAction(Request $request)
     {
-        $url = $_SERVER['REQUEST_URI'];
-        return $this->render('pages/cart.html.twig', array('url' => $url));
+        return $this->render('pages/cart.html.twig');
     }
 
     /**
@@ -49,8 +38,7 @@ class CourseController extends Controller
      */
     public function profileAction(Request $request)
     {
-        $url = $_SERVER['REQUEST_URI'];
-        return $this->render('pages/profile.html.twig', array('url' => $url));
+        return $this->render('pages/profile.html.twig');
     }
 
 

@@ -12,7 +12,7 @@
     </head>
     <body>
 
-      {% if url == '/' %}
+      {% if home is defined %}
       <div class="top-bar" id="home">
       {% else %}
       <div class="top-bar" id="site">
@@ -28,24 +28,32 @@
               <li>
                 <a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> cart </a>
               </li>
+              {% if app.user %}
               <li>
-                <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i> profile </a>
+                  <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i> profile </a>
               </li>
+              {% endif %}
               <li>
+              {% if is_granted('ROLE_USER') %}
+                <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</a>
+              {% else %}
                 <a href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+              {% endif %}
               </li>
             </ul>
         </div>
     </div>
 
-    {% if url == '/' %}
+    {% if home is defined%}
     <div id="banner">
       <img src="{{ asset('images/banner.png') }}" alt="banner" />
     </div>
     {% endif %}
 
     <main class="grid-container" id="main-cont">
-        {% block body %}{% endblock %}
+      {% block body %}
+        {% block fos_user_content %}{% endblock %}
+      {% endblock %}
     </main>
         {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/vendor/jquery.js') }}"></script>
