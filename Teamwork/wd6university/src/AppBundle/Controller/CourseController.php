@@ -15,6 +15,8 @@ class CourseController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $session = $request->getSession();
+        // $session->clear();
         $url = $_SERVER['REQUEST_URI'];
         $results = $this->getDoctrine()->getRepository('AppBundle:courses')->findAll();
 
@@ -37,14 +39,6 @@ class CourseController extends Controller
     {
         $url = $_SERVER['REQUEST_URI'];
         return $this->render('pages/login.html.twig', array('url' => $url));
-    }
-    /**
-     * @Route("/cart", name="cart")
-     */
-    public function cartAction(Request $request)
-    {
-        $url = $_SERVER['REQUEST_URI'];
-        return $this->render('pages/cart.html.twig', array('url' => $url));
     }
 
     /**

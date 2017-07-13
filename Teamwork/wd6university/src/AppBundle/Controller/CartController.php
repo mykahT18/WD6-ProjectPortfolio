@@ -34,14 +34,55 @@ class CartController extends Controller
 
 		$cartList = $session->get('cart');
 
-		$cartList[] = $id;
+		$cartList[$id] = $id;
 
 		$session->set('cart', $cartList);
-		
-        $url = $_SERVER['REQUEST_URI'];
-    	$results = $this->getDoctrine()->getRepository('AppBundle:courses')->findAll();
-        return $this->render('pages/index.html.twig', array('url' => $url, 'results' => $results ));
-    }
 
+
+        return $this->redirect('/');
+    
+    }
+     /**
+     * @Route("/", name="cart_view")
+     */
+    public function cartAction(Request $request)
+    {
+    	$session = $request->getSession();
+        // $session->clear();
+
+    	$cartList = $session->get('cart');
+        // var_dump($cartList);
+    	$total = 0.00;
+    	$i = 0;
+    	foreach ($cartList as $value) {
+
+    		$results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
+
+
+    		// $total += $results->price;
+    	}
+
+        foreach ($results as $item) {
+            $total += $item->getPrice();
+        }
+
+            // var_dump($results);
+
+    		// get_object_var($results);
+
+        $url = $_SERVER['REQUEST_URI'];
+        return $this->render('pages/cart.html.twig', array('url' => $url, 'results' => $results, 'total' => $total));
+    }
+    /**
+     * @Route("/del/{id}", name="cart_delete")
+     */
+    public function deleteAction($id, Request $request){
+    	$session = $request->getSession();
+    	$cartList = $session->get('cart');
+
+    	unset($cartList[$id]);
+        var_dump($cartList);
+         return $this->redirectToRoute('cart_view');
+    }
 
 }

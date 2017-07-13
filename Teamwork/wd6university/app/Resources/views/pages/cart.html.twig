@@ -8,30 +8,22 @@
       <div class="card-divider">
         <h4>Shopping List</h4>
       </div>
-
+      {# {{ dump(results) }} #}
       <div class="card-section">
 
         <ul class="no-bullet">
+          {% for r in results %}
           <li>
             <div class="grid-x video_list">
               <div class="small-1 cell">
                 <img src="{{ asset('images/img_test.jpg') }}" alt="image course" />
               </div>
-              <div class="auto cell">Video title list</div>
-              <div class="small-2 cell delete_btn"><i class="fa fa-trash" aria-hidden="true"></i> delete</div>
-              <div class="small-2 cell price text-right">$10.00</div>
+              <div class="auto cell">{{ r.title }}</div>
+              <div class="small-2 cell delete_btn"><a href="/cart/del/{{ r.id }}"><i class="fa fa-trash" aria-hidden="true"></i> delete</a></div>
+              <div class="small-2 cell price text-right">${{ r.price }}</div>
             </div>
           </li>
-          <li>
-            <div class="grid-x video_list">
-              <div class="small-1 cell">
-                <img src="{{ asset('images/img_test.jpg') }}" alt="image course" />
-              </div>
-              <div class="auto cell">Video title list</div>
-              <div class="small-2 cell delete_btn"><i class="fa fa-trash" aria-hidden="true"></i> delete</div>
-              <div class="small-2 cell price text-right">$10.00</div>
-            </div>
-          </li>
+          {% endfor %}
         </ul>
       </div>
       <div class="card-section">
@@ -39,13 +31,12 @@
             <div class="small-12 medium-6 medium-offset-6 cell">
                 <div class="grid-x grid-padding-x">
                   <div class="small-6 cell total text-right">Total</div>
-                  <div class="small-6 cell price_total text-right">$20.00</div>
+                  <div class="small-6 cell price_total text-right">$ {{ total }}</div>
 
                 </div>
             </div>
         </div>
       </div>
-
     <div>
 
 
