@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use AppBundle\Entity\courses;
+
 class CourseController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class CourseController extends Controller
      */
     public function indexAction(Request $request)
     {
-      return $this->render('pages/index.html.twig', array('home' => ''));
+        $session = $request->getSession();
+        $results = $this->getDoctrine()->getRepository('AppBundle:courses')->findAll();
+
+        return $this->render('pages/index.html.twig', array('home' => '', 'results' => $results));
     }
 
     /**
@@ -24,14 +29,6 @@ class CourseController extends Controller
         return $this->render('pages/single.html.twig');
     }
 
-
-    /**
-     * @Route("/cart", name="cart")
-     */
-    public function cartAction(Request $request)
-    {
-        return $this->render('pages/cart.html.twig');
-    }
 
     /**
      * @Route("/profile", name="profile")

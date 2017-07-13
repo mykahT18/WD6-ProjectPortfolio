@@ -17,7 +17,7 @@ class LoadUserData implements FixtureInterface
         $user = new User();
         $course = new courses();
 
-        // $oneItemResult = $course->getDoctrine()->getRepository('AppBundle:courses')->find(38);
+        //$oneItemResult = $course->getDoctrine()->getRepository('AppBundle:courses')->find(38);
 
         $user->setUsername('master');
         $user->setPassword('password');
