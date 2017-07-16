@@ -86,7 +86,7 @@ class CartController extends Controller
      */
     public function checkoutAction(Request $request){
 
-      var_dump($request->get('total'));
+      // var_dump($request->get('total'));
       return $this->render('pages/checkout.html.twig');
 
 
@@ -95,31 +95,42 @@ class CartController extends Controller
     /**
      * @Route("/charge", name="charge")
      */
-    public function charge(Request $request){
-      $stripeClient = $this->get('flosch.stripe.client');
+    public function paymentProcess(Request $request){
+    $stripeClient = $this->get('flosch.stripe.client');
 
-      /**
-       * $chargeAmount (int)              : The charge amount in cents, for instance 1000 for 10.00 (of the currency)
-       * $chargeCurrency (string)         : The charge currency (for instance, "eur")
-       * $paymentToken (string)           : The payment token obtained using the Stripe.js library
-       * $stripeAccountId (string|null)   : (optional) The connected string account ID, default null (--> charge to the platform)
-       * $applicationFee (int)            : The amount of the application fee (in cents), default to 0
-       * $chargeDescription (string)      : (optional) The charge description for the customer
-       */
+    $session = $request->getSession();
+    $total = $session->get('total');
+    $ammount = (int)$total * 100;
+
+    /**
+    * $chargeAmount (int)              : The charge amount in cents, for instance 1000 for 10.00 (of the currency)
+    * $chargeCurrency (string)         : The charge currency (for instance, "eur")
+    * $paymentToken (string)           : The payment token obtained using the Stripe.js library
+    * $stripeAccountId (string|null)   : (optional) The connected string account ID, default null (--> charge to the platform)
+    * $applicationFee (int)            : The amount of the application fee (in cents), default to 0
+    * $chargeDescription (string)      : (optional) The charge description for the customer
+    */
+
+    $chargeAmount = $ammount;
+    $chargeCurrency = 'USD';
+    $paymentToken = $request->get('stripeToken');
 
 
-        $chargeAmount = $request->get('total');
-        $chargeCurrency = 'USD';
-        $paymentToken = $request->get('StripeToken');
-        // $stripeAccountId = "ca_B1FLHhIXQiD5QkHDwHbF9Os5emNjIHUN";
-        $chargeDescription = 'Payment TEST';
+    $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
 
+    // echo "<pre>";
+    // var_dump($chargeAmount);
+    // var_dump($chargeCurrency);
+    // var_dump($paymentToken);
+    // // var_dump($chargeDescription);
+    // echo "</pre>";
 
-
-      $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken, $chargeDescription);
-
-      var_dump($request->get('total'));
-
+    foreach ($session->get('cart') as $value) {
+      $results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
     }
+
+    return $this->render('pages/success.html.twig', ['total'=> $total, 'description'=> $results]);
+    }
+
 
 }
