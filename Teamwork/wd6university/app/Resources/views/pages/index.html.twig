@@ -14,7 +14,7 @@
 {% for r in results %}
   <div class="large-4 medium-6 small-auto cell course">
     <div class="img_cart">
-      <a href="/single" class="img_cart_link"></a>
+      <a href="/single/{{ r.id }}" class="img_cart_link"></a>
       <a href="/cart/addCart/{{ r.id }}" class="cart_btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> cart </a>
       <img src="{{ r.img }}" alt="image course" />
     </div>
@@ -23,7 +23,7 @@
       <div class="large-4 auto price">${{ r.price }}</div>
     </div>
     <p> {{ r.description }} </p>
-    {{ dump(app.session.get('cart')) }}
+    {# {{ dump(app.session.get('cart')) }} #}
   </div>
 {% endfor %}
 

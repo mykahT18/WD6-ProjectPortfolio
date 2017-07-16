@@ -16,17 +16,23 @@ class CourseController extends Controller
     public function indexAction(Request $request)
     {
         $session = $request->getSession();
+        // $session->clear();
         $results = $this->getDoctrine()->getRepository('AppBundle:courses')->findAll();
 
         return $this->render('pages/index.html.twig', array('home' => '', 'results' => $results));
     }
 
     /**
-     * @Route("/single", name="single-course")
+     * @Route("/single/{id}", name="single-course")
      */
-    public function singleAction(Request $request)
+    public function singleAction($id, Request $request)
     {
-        return $this->render('pages/single.html.twig');
+
+   //      $em = $this->getDoctrine()->getManager();
+        $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
+        // var_dump($course);
+     
+        return $this->render('pages/single.html.twig', array('course' => $course));
     }
 
 

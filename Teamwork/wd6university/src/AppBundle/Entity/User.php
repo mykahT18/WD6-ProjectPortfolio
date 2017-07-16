@@ -32,6 +32,17 @@ class User extends BaseUser
      */
     private $course_id;
 
+     /**
+     * Many User have Many Courses.
+     * @ORM\ManyToMany(targetEntity="courses")
+     * @ORM\JoinTable(name="user_favorites",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="courses_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $favorie_id;
+
+
 
     /**
      * @var string
