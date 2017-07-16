@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\courses;
-use AppBundle\Entity\Users;
+use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
@@ -22,13 +22,7 @@ class CartController extends Controller
      */
     public function indexAction($id, Request $request)
     {
-   //      $user = new Users();
-   //      $em = $this->getDoctrine()->getManager();
- 		// $courseId = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
-   //      var_dump($courseId);
-   //      $user->addCourseId($courseId);
-   //      $em->persist($user);
-   //      $em->flush();
+  
  		// Getting session
 		$session = $request->getSession();
 
@@ -53,22 +47,16 @@ class CartController extends Controller
     	$cartList = $session->get('cart');
         // var_dump($cartList);
     	$total = 0.00;
-    	$i = 0;
-    	foreach ($cartList as $value) {
+        $results = [];
+        if ($cartList) {
+            foreach ($cartList as $value) {
 
-    		$results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
-
-
-    		// $total += $results->price;
-    	}
-
-        foreach ($results as $item) {
-            $total += $item->getPrice();
+                $results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
         }
-
-            // var_dump($results);
-
-    		// get_object_var($results);
+            foreach ($results as $item) {
+                $total += $item->getPrice();
+            }
+        }
 
         $url = $_SERVER['REQUEST_URI'];
         return $this->render('pages/cart.html.twig', array('url' => $url, 'results' => $results, 'total' => $total));
@@ -84,5 +72,32 @@ class CartController extends Controller
         var_dump($cartList);
          return $this->redirectToRoute('cart_view');
     }
+    /**
+     * @Route("/addFav/{id}", name="wish_list")
+     */
+     public function wishAction($id){
+
+        $user = new User();
+        $course = new courses();
+
+        $user = $this->getUser()->getId();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find((int)$id);
+        // var_dump();
+
+        echo "<pre>";
+        var_dump($course);
+        echo "</pre>";
+        // $c_id = $course->getId();
+        // var_dump($c_id);
+
+        $user->addCourse($course);
+        $em->persist($user);
+        $em->flush();
+
+        return $this->render('pages/dumbie.html.twig');
+     }
 
 }

@@ -30,7 +30,7 @@ class User extends BaseUser
      *      inverseJoinColumns={@ORM\JoinColumn(name="courses_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $course_id;
+    private $course;
 
 
     /**
@@ -39,7 +39,6 @@ class User extends BaseUser
      * @ORM\Column(name="picture", type="string", length=255, nullable=true)
      */
     private $picture;
-
 
 
 
@@ -65,14 +64,6 @@ class User extends BaseUser
     public function getPicture()
     {
         return $this->picture;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->course = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
