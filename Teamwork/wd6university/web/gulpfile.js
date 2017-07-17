@@ -38,12 +38,9 @@ gulp.task('assets', function () {
 
 gulp.task('browser-sync', function(){
     browserSync.init({
-        server:{
-            baseDir: "./"
-        }
+        proxy: "localhost:8000"
     })
 })
-
 gulp.task('watch', ['browser-sync' ,'scss', 'babel'], function(){
     // refresh.listen()
     gulp.watch(['./**/*.scss'], ['scss'])
