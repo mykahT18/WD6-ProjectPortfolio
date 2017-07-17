@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i');
+
+body{
+  font-family: $text!important;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font;
+  font-weight: bold;
+}
+
+// -------------- header
+#home{
+  &.top-bar{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(white, .1);
+
+    & ul{
+      background-color: transparent;
+
+      & a{
+        color: white;
+      }
+    }
+  }
+}
+#banner{
+  img{
+    width: 100%;
+  }
+}
+
+#site{
+  &.top-bar{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2ecc71+0,103442+100 */
+    background: #2ecc71; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #2ecc71 0%, #103442 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #2ecc71 0%,#103442 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #2ecc71 0%,#103442 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#103442',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    & ul{
+      background-color: transparent;
+
+      & a{
+        color: white;
+      }
+    }
+  }
+}
+
+
+#main-cont{
+  margin-top: 20px;
+}
+
+
+.course{
+  padding: .6rem 1rem;
+
+  .img_cart{
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+
+    &:hover{
+      opacity: .8;
+    }
+
+    .cart_btn{
+      background-color: $primary;
+      position: absolute;
+      bottom:0px;
+      right: 0px;
+      padding: 10px;
+      color: $dark;
+    }
+
+    .img_cart_link{
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+
+    .wishlist_btn{
+      color: $alert;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .price{
+    color: $primary;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: right;
+    font-family: $font;
+  }
+}
+
+.video_list{
+  border-top: 1px solid rgba($dark, .1);
+
+  .play_btn{
+    font-size: 1.3em;
+  }
+
+  div{
+    padding: 20px 10px;
+  }
+}
+
+// shopping cart
+#cart{
+  .price{
+    color: $primary;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: right;
+    font-family: $font;
+  }
+
+  .delete_btn{
+    color: $alert;
+  }
+
+  .total{
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .price_total{
+    color: darken($ok, .3);
+    font-weight: bolder;
+    font-size: 1.3em;
+  }
+}
+
+// profile
+.profile{
+  img{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin: 0px auto;
+  }
+}
+
+// forms
+.card-section{
+  .message-form{
+    margin-top: 10px;
+    p{
+      font-size: .8em;
+      color: lighten($dark, 30);
+      font-style: italic;
+
+      a{
+        text-decoration: underline;
+        color: $ok;
+      }
+    }
+  }
+
+  .button{
+    background-color: $ok;
+  }
+}
+
+//cart
+.button.checkout{
+  background-color: $primary;
+  color: $dark;
+  width: 100%;
+}
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}

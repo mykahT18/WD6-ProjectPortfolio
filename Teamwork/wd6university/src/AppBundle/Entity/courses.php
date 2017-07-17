@@ -22,12 +22,6 @@ class courses
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Users", inversedBy="course")
-     * @ORM\JoinColumn(name="course_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -47,6 +41,19 @@ class courses
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255)
+     */
+    private $img;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", length=11)
+     */
+    private $price;
 
 
     /**
@@ -134,11 +141,11 @@ class courses
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\Users $user
+     * @param \AppBundle\Entity\User $user
      *
      * @return courses
      */
-    public function setUser(\AppBundle\Entity\Users $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -148,10 +155,58 @@ class courses
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\Users
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     *
+     * @return courses
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set price
+     *
+     * @param \FLOAT $price
+     *
+     * @return courses
+     */
+    public function setPrice(float $price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
