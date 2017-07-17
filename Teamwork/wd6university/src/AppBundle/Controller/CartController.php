@@ -22,7 +22,7 @@ class CartController extends Controller
      */
     public function indexAction($id, Request $request)
     {
-  
+
  		// Getting session
 		$session = $request->getSession();
 
@@ -34,7 +34,7 @@ class CartController extends Controller
 
 
         return $this->redirect('/');
-    
+
     }
      /**
      * @Route("/", name="cart_view")
@@ -76,7 +76,7 @@ class CartController extends Controller
      * @Route("/addFav/{id}", name="wish_list")
      */
      public function wishAction($id){
- 
+
         $course = new courses();
         $userId = $this->getUser()->getId();
 
