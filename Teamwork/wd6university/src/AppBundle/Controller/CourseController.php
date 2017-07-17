@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\courses;
+use AppBundle\Entity\User;
 
 class CourseController extends Controller
 {
@@ -35,6 +36,10 @@ class CourseController extends Controller
      */
     public function profileAction(Request $request)
     {
+        // $userId = $this->getUser()->getId();
+        // $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
+        // var_dump($userId);
+        // $user->getCourse();
         return $this->render('pages/profile.html.twig');
     }
 

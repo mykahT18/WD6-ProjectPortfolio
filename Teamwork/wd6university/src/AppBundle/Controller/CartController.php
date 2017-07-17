@@ -76,28 +76,19 @@ class CartController extends Controller
      * @Route("/addFav/{id}", name="wish_list")
      */
      public function wishAction($id){
-
-        $user = new User();
+ 
         $course = new courses();
-
-        $user = $this->getUser()->getId();
-
+        $userId = $this->getUser()->getId();
 
         $em = $this->getDoctrine()->getManager();
-        $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find((int)$id);
-        // var_dump();
-
-        echo "<pre>";
-        var_dump($course);
-        echo "</pre>";
-        // $c_id = $course->getId();
-        // var_dump($c_id);
+        $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
         $user->addCourse($course);
         $em->persist($user);
         $em->flush();
 
-        return $this->render('pages/dumbie.html.twig');
+        return $this->redirectToRoute('course');
      }
 
 }
