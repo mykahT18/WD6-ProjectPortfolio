@@ -11,33 +11,48 @@
       {# {{ dump(results) }} #}
       <div class="card-section">
 
-        <ul class="no-bullet">
-          {% for r in results %}
-          <li>
-            <div class="grid-x video_list">
-              <div class="small-1 cell">
-                <img src="{{ asset('images/img_test.jpg') }}" alt="image course" />
+
+
+          <ul class="no-bullet">
+            {% for r in results %}
+            <li>
+              <div class="grid-x video_list">
+                <div class="small-1 cell">
+                  <img src="{{ asset('images/img_test.jpg') }}" alt="image course" />
+                </div>
+                <div class="auto cell">{{ r.title }}</div>
+                <div class="small-2 cell delete_btn"><a href="/cart/del/{{ r.id }}"><i class="fa fa-trash" aria-hidden="true"></i> delete</a></div>
+                <div class="small-2 cell price text-right">${{ r.price }}</div>
               </div>
-              <div class="auto cell">{{ r.title }}</div>
-              <div class="small-2 cell delete_btn"><a href="/cart/del/{{ r.id }}"><i class="fa fa-trash" aria-hidden="true"></i> delete</a></div>
-              <div class="small-2 cell price text-right">${{ r.price }}</div>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
+            </li>
+            {% endfor %}
+          </ul>
+
+
       </div>
       <div class="card-section">
         <div class="grid-x grid-padding-x">
-            <div class="small-12 medium-6 medium-offset-6 cell">
+            <div class="small-12 cell">
+              <form action="/cart/checkout" method="post">
                 <div class="grid-x grid-padding-x">
-                  <div class="small-6 cell total text-right">Total</div>
-                  <div class="small-6 cell price_total text-right">$ {{ total }}</div>
+                  <div class="small-4 cell total text-right">
+                    <input type="submit" name="submit" value="Checkout" class="checkout button">
+                  </div>
+
+                  <div class="small-4 cell total text-right">Total</div>
+                  <div class="small-4 cell price_total text-right">$ {{ total }}</div>
+
+                  <input type="hidden" name="total" value="{{ total }}"/>
 
                 </div>
+              </form>
+
+
+
             </div>
         </div>
       </div>
-    <div>
+    </div>
 
 
   </div>

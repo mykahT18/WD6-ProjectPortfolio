@@ -75,3 +75,5 @@ fos_user:
     from_email:
         address: "hello@aquanote.com"
         sender_name: "AquaNote Postman"
+flosch_stripe:
+    stripe_api_key: "%stripe_api_key%" # The Stripe API key can be added as a symfony parameter
