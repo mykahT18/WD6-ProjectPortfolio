@@ -57,6 +57,7 @@ class CartController extends Controller
             foreach ($results as $item) {
                 $total += $item->getPrice();
             }
+            $session->set('total', $total);
         }
 
       $url = $_SERVER['REQUEST_URI'];
