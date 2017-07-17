@@ -84,7 +84,7 @@ class CartController extends Controller
         $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
-        $user->addCourse($course);
+        $user->addFavorie($course);
         $em->persist($user);
         $em->flush();
 
