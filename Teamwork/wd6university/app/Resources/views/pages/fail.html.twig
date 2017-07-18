@@ -1,0 +1,53 @@
+{% extends "/base.html.twig" %}
+
+{% block body %}
+<div class="grid-x grid-padding-x" style="background-color:red;">
+
+  <div class="small-12 medium-6 medium-offset-3 cell" id="cart">
+    <div class="card">
+      <div class="card-divider">
+        <h4>ERROR</h4>
+      </div>
+      <div class="card-section">
+          <p>thanks for shopping with us.</p>
+      </div>
+      <div class="card-section">
+        <div class="grid-x grid-padding-x">
+            <div class="small-12 cell">
+              <form action="/cart/checkout" method="post">
+                <div class="grid-x grid-padding-x">
+
+
+                  <div class="small-11 small-offset-1 cell total">
+                    <h3>Bought Items</h3>
+                    <ul class="no-bullet">
+                      {% for item in description %}
+                      <li>
+                        <div class="small-9 cell title">{{ item.title}}</div>
+                        <div class="small-3 cell price">${{ item.price}}</div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    <h3>Total Value</h3>
+                    <div class="price_total">
+                      ${{ total }}
+                    </div>
+
+                  </div>
+
+                </div>
+              </form>
+
+
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+{% endblock %}

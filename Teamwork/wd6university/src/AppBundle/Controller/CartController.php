@@ -128,8 +128,11 @@ class CartController extends Controller
     $chargeCurrency = 'USD';
     $paymentToken = $request->get('stripeToken');
 
-
-    $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
+    try {
+      $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
+    } catch (\Exception $e) {
+      return $this->render('pages/fail.html.twig');
+    }
 
     // echo "<pre>";
     // var_dump($chargeAmount);
