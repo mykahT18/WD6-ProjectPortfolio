@@ -40,7 +40,7 @@ class User extends BaseUser
      *      inverseJoinColumns={@ORM\JoinColumn(name="courses_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $favorie;
+    private $favorite;
 
 
 
@@ -50,6 +50,8 @@ class User extends BaseUser
      * @ORM\Column(name="picture", type="string", length=255, nullable=true)
      */
     private $picture;
+
+
 
 
 
@@ -113,36 +115,36 @@ class User extends BaseUser
     }
 
     /**
-     * Add favorie
+     * Add favorite
      *
-     * @param \AppBundle\Entity\courses $favorie
+     * @param \AppBundle\Entity\courses $favorite
      *
      * @return User
      */
-    public function addFavorie(\AppBundle\Entity\courses $favorie)
+    public function addFavorite(\AppBundle\Entity\courses $favorite)
     {
-        $this->favorie[] = $favorie;
+        $this->favorite[] = $favorite;
 
         return $this;
     }
 
     /**
-     * Remove favorie
+     * Remove favorite
      *
-     * @param \AppBundle\Entity\courses $favorie
+     * @param \AppBundle\Entity\courses $favorite
      */
-    public function removeFavorie(\AppBundle\Entity\courses $favorie)
+    public function removeFavorite(\AppBundle\Entity\courses $favorite)
     {
-        $this->favorie->removeElement($favorie);
+        $this->favorite->removeElement($favorite);
     }
 
     /**
-     * Get favorie
+     * Get favorite
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFavorie()
+    public function getFavorite()
     {
-        return $this->favorie;
+        return $this->favorite;
     }
 }

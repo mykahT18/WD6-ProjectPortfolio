@@ -86,7 +86,7 @@ class CartController extends Controller
         $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
-        $user->addFavorie($course);
+        $user->addFavorite($course);
         $em->persist($user);
         $em->flush();
 
@@ -99,7 +99,7 @@ class CartController extends Controller
      */
     public function checkoutAction(Request $request){
 
-      // var_dump($request->get('total'));
+      
       return $this->render('pages/checkout.html.twig');
 
 

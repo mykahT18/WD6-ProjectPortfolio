@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\courses;
 use AppBundle\Entity\User;
+use FOS\UserBundle\Doctrine\UserManager;
 
 class CourseController extends Controller
 {
@@ -42,11 +43,20 @@ class CourseController extends Controller
      */
     public function profileAction(Request $request)
     {
-        // $userId = $this->getUser()->getId();
-        // $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
-        // var_dump($userId);
-        // $user->getCourse();
-        return $this->render('pages/profile.html.twig');
+        // $userManager = $container->get('fos_user.user_manager');
+
+        $userId = $this->getUser()->getId();
+
+        // $user = $this->findUserBy(array('id'=>$userId));
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
+        
+        // var_dump($user);
+         
+       $user->getFavorite();
+            // var_dump($fav);
+        
+        // $user->getFavorite();
+        return $this->render('pages/dumbie.html.twig');
     }
 
 
