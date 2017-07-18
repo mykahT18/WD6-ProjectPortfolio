@@ -32,7 +32,7 @@ class CourseController extends Controller
    //      $em = $this->getDoctrine()->getManager();
         $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
         // var_dump($course);
-     
+
         return $this->render('pages/single.html.twig', array('course' => $course));
     }
 

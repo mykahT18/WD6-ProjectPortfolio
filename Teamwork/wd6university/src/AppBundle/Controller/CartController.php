@@ -141,9 +141,24 @@ class CartController extends Controller
     // // var_dump($chargeDescription);
     // echo "</pre>";
 
+
+    $course = new courses();
+    $userId = $this->getUser()->getId();
+    $em = $this->getDoctrine()->getManager();
+    $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+
+
     foreach ($session->get('cart') as $value) {
       $results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
+      var_dump($results[$value]);
+      // $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
+      // $user->addCourse($course);
     }
+
+
+
+    // $em->persist($user);
+    // $em->flush();
 
     return $this->render('pages/success.html.twig', ['total'=> $total, 'description'=> $results]);
     }
