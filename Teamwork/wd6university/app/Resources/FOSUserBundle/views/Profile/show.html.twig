@@ -1,16 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Username: {{ user.username }}</h1>
-<h2>Email: {{ user.email }}</h2>
+<div class="grid-x grid-margin-x ">
 
-<div>
-	<h1>Favorites List</h1>
-	<ul>
-		{% for item in result %}
-		      <li>{{item.title}}</li>
-		{% endfor %}
-	</ul>
+	<div class="small-4 cell">
+		<img src="{{ user.picture }}" alt="">
+		<h1>Username: {{ user.username }}</h1>
+		<p>Email: {{ user.email }}</p>
+	</div>
+
+	<article class="card auto cell">
+		<h1 class="card-divider">Favorites List</h1>
+		<ul>
+			{% for item in favorites %}
+			      <li>{{item.title}}</li>
+			{% endfor %}
+		</ul>
+	</article>
+
+	<article class="card auto cell">
+		<h1 class="card-divider">Recent Brought Courses</h1>
+		<ul>
+			{% for c in courses %}
+			     <p>Course title: {{ c.title }}</p>
+			     <p>Course price: {{ c.price }}</p>
+			{% endfor %}
+		</ul>
+	</article>	
 </div>
+
 
 {% endblock %}

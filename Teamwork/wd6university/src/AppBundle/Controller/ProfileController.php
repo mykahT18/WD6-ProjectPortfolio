@@ -38,14 +38,9 @@ class ProfileController extends BaseController
       $userId = $this->getUser()->getId();
       $user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
       
-      $result = $user->getFavorite();
-      // var_dump($result);
-       // foreach ($result as $value) {
-
-       //          $result[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
-       //  }
-
-      // var_dump($user);
-      return $this->render('@FOSUser/Profile/show.html.twig', array('user' => $user, 'result' => $result) );
+      $favorites = $user->getFavorite();
+      $courses = $user->getCourse();
+      
+      return $this->render('@FOSUser/Profile/show.html.twig', array('user' => $user, 'favorites' => $favorites, 'courses' => $courses) );
   }
 }

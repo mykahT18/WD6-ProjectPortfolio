@@ -68,10 +68,14 @@ class CartController extends Controller
     public function deleteAction($id, Request $request){
     	$session = $request->getSession();
     	$cartList = $session->get('cart');
+      $results = [];
 
-    	unset($cartList[$id]);
-        var_dump($cartList);
-         return $this->redirectToRoute('cart_view');
+      unset($cartList[$id]);
+      $session->set('cart', $cartList);
+
+      var_dump($cartList);
+      return $this->redirectToRoute('cart_view');
+
     }
     /**
      * @Route("/addFav/{id}", name="wish_list")
@@ -144,8 +148,8 @@ class CartController extends Controller
         $em->persist($user);
     }
     
-    $em->flush();
-
+    $em->flush();  
+    $session->clear();
     return $this->render('pages/success.html.twig', ['total'=> $total, 'description'=> $results]);
     }
 
