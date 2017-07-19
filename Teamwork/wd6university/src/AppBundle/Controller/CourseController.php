@@ -33,13 +33,13 @@ class CourseController extends Controller
    //      $em = $this->getDoctrine()->getManager();
         $course = $this->getDoctrine()->getRepository('AppBundle:courses')->find($id);
         // var_dump($course);
-     
+
         return $this->render('pages/single.html.twig', array('course' => $course));
     }
 
 
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/proasdasdfile", name="profiasdasdle")
      */
     public function profileAction(Request $request)
     {
@@ -49,12 +49,12 @@ class CourseController extends Controller
 
         // $user = $this->findUserBy(array('id'=>$userId));
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
-        
+
         // var_dump($user);
-         
+
        $user->getFavorite();
             // var_dump($fav);
-        
+
         // $user->getFavorite();
         return $this->render('pages/dumbie.html.twig');
     }
