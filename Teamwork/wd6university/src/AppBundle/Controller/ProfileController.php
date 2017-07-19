@@ -16,10 +16,10 @@ use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-// use Symfony\Component\HttpFoundation\RedirectResponse;
-// use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-// use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
+use AppBundle\Entity\courses;
+
 
 
 class ProfileController extends BaseController
@@ -33,11 +33,17 @@ class ProfileController extends BaseController
       if (!is_object($user) || !$user instanceof UserInterface) {
           throw new AccessDeniedException('This user does not have access to this section.');
       }
+      $course = new courses();
 
       $userId = $this->getUser()->getId();
       $user = $this->getDoctrine()->getRepository('AppBundle:User')->findOneById($userId);
-      // var_dump($user);
+      
       $result = $user->getFavorite();
+      // var_dump($result);
+       // foreach ($result as $value) {
+
+       //          $result[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
+       //  }
 
       // var_dump($user);
       return $this->render('@FOSUser/Profile/show.html.twig', array('user' => $user, 'result' => $result) );

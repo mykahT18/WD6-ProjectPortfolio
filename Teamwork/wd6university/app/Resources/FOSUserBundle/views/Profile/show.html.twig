@@ -1,4 +1,16 @@
-{% for item in result %}
-      <li>{{item.id}}</li>
-{% endfor %}
-<h1> {{user.email}}</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Username: {{ user.username }}</h1>
+<h2>Email: {{ user.email }}</h2>
+
+<div>
+	<h1>Favorites List</h1>
+	<ul>
+		{% for item in result %}
+		      <li>{{item.title}}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

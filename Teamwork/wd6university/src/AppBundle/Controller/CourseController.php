@@ -41,23 +41,23 @@ class CourseController extends Controller
     /**
      * @Route("/proasdasdfile", name="profiasdasdle")
      */
-    public function profileAction(Request $request)
-    {
-        // $userManager = $container->get('fos_user.user_manager');
+    // public function profileAction(Request $request)
+    // {
+    //     // $userManager = $container->get('fos_user.user_manager');
 
-        $userId = $this->getUser()->getId();
+    //     $userId = $this->getUser()->getId();
 
-        // $user = $this->findUserBy(array('id'=>$userId));
-        $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
+    //     // $user = $this->findUserBy(array('id'=>$userId));
+    //     $user = $this->getDoctrine()->getRepository('AppBundle:User')->findAll($userId);
 
-        // var_dump($user);
+    //     // var_dump($user);
 
-       $user->getFavorite();
-            // var_dump($fav);
+    //    $user->getFavorite();
+    //         // var_dump($fav);
 
-        // $user->getFavorite();
-        return $this->render('pages/dumbie.html.twig');
-    }
+    //     // $user->getFavorite();
+    //     return $this->render('pages/dumbie.html.twig');
+    // }
 
 
 }

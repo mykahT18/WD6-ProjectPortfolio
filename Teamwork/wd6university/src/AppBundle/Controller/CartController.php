@@ -25,17 +25,16 @@ class CartController extends Controller
     public function indexAction($id, Request $request)
     {
 
- 		// Getting session
-		$session = $request->getSession();
+   		// Getting session
+  		$session = $request->getSession();
 
-		$cartList = $session->get('cart');
+  		$cartList = $session->get('cart');
 
-		$cartList[$id] = $id;
+  		$cartList[$id] = $id;
 
-		$session->set('cart', $cartList);
+  		$session->set('cart', $cartList);
 
-
-        return $this->redirect('/');
+      return $this->redirect('/');
 
     }
      /**
@@ -99,10 +98,7 @@ class CartController extends Controller
      */
     public function checkoutAction(Request $request){
 
-      
       return $this->render('pages/checkout.html.twig');
-
-
     }
 
     /**
@@ -128,19 +124,27 @@ class CartController extends Controller
     $chargeCurrency = 'USD';
     $paymentToken = $request->get('stripeToken');
 
-
-    $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
-
+    try{
+      $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
+    }catch(\Exception $e){
+      return $this->render('pages/fail.html.twig');
+    }
     // echo "<pre>";
     // var_dump($chargeAmount);
     // var_dump($chargeCurrency);
     // var_dump($paymentToken);
     // // var_dump($chargeDescription);
     // echo "</pre>";
-
+    $user = $this->getUser();
+    $em = $this->getDoctrine()->getManager();
     foreach ($session->get('cart') as $value) {
       $results[$value] = $this->getDoctrine()->getRepository('AppBundle:courses')->findOneBy(array('id' => $value));
+
+        $user->addCourse($results[$value]);
+        $em->persist($user);
     }
+    
+    $em->flush();
 
     return $this->render('pages/success.html.twig', ['total'=> $total, 'description'=> $results]);
     }
