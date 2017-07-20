@@ -101,7 +101,9 @@ class CartController extends Controller
      * @Route("/checkout", name="checkout")
      */
     public function checkoutAction(Request $request){
-
+      if(!$this->getUser()) {
+        // return $this->render('FOSUserBundle/views/Security/login_content.html.twig');
+      }
       return $this->render('pages/checkout.html.twig');
     }
 
@@ -129,9 +131,13 @@ class CartController extends Controller
     $paymentToken = $request->get('stripeToken');
 
     try{
+
       $stripeClient->createCharge($chargeAmount, $chargeCurrency, $paymentToken);
+
     }catch(\Exception $e){
+
       return $this->render('pages/fail.html.twig');
+
     }
     // echo "<pre>";
     // var_dump($chargeAmount);
@@ -139,6 +145,7 @@ class CartController extends Controller
     // var_dump($paymentToken);
     // // var_dump($chargeDescription);
     // echo "</pre>";
+    
     $user = $this->getUser();
     $em = $this->getDoctrine()->getManager();
     foreach ($session->get('cart') as $value) {
