@@ -2,7 +2,19 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/materialize.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://use.fontawesome.com/6665b66eb7.js')
   body
-    block content
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#') Logo
+        ul#nav-mobile.right.hide-on-med-and-down
+          li
+            a(href='') Home
+          li
+            a(href='')
+            i.fa.fa-shopping-cart(aria-hidden='true')
+          li
+            a(href='') Login
+  block content
