@@ -8,25 +8,27 @@ html
     script(src='/javascripts/materialize.min.js')
     script(src='/javascripts/main.js')
     script(src='https://use.fontawesome.com/6665b66eb7.js')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Rubik')
   body
     nav
-      .nav-wrapper
-        a.brand-logo(href='#') Logo
+      .nav-wrapper#main-nav
+        a.brand-logo(href='#')
+          h1#brand logo
         a.button-collapse(href='#', data-activates='mobile-demo')
           i.fa.fa-bars(aria-hidden='true')
         ul.right.hide-on-med-and-down
           li.myli
-            a(href='') Home
+            a.myA(href='') Home
           li.myli
-            a(href='')
-            i.fa.fa-shopping-cart(aria-hidden='true')
+            a.myA(href='')
+              i.fa.fa-shopping-cart(aria-hidden='true') Cart
           li.myli
-            a(href='') Login
+            a.myA(href='') Login
         ul#mobile-demo.side-nav
           li.myli
-            a(href='') Home
+            a.myA(href='') Home
           li.myli
-            a(href='') Cart
+            a.myA(href='') Cart
           li.myli
             a.myA(href='') Login
   block content

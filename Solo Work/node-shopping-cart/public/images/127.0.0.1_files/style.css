@@ -1,18 +1,12 @@
 body {
-	
-  font-family: 'Rubik', sans-serif;
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .myli:hover{
 	color: #07D6FD;
 }
 nav{
-	background-color: #F0F2EF;
-}
-.myA{
-	color: #22B573;
-}
-#main-nav{
-	margin-bottom: 1rem;
+	background-color: #3A3E4B;
 }
 #title{
 	color: #272425;
@@ -34,11 +28,10 @@ nav{
 }
 #brand{
 	text-indent: -9999px;
-	background-image: url('/images/logo2.svg');
+	background-image: url('/images/logo.svg');
 	background-repeat: no-repeat;
-	background-size: contain;                    
-    width: 200px;
-    height: 60px;
-	margin: 0.3rem 0 0 1rem;
-
+	background-size: contain;
+	height: 100%;                     
+    width: 600px;
+	margin-left: 1rem;
 }
