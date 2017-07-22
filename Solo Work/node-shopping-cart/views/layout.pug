@@ -4,17 +4,29 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/materialize.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script(src='/javascripts/materialize.min.js')
+    script(src='/javascripts/main.js')
     script(src='https://use.fontawesome.com/6665b66eb7.js')
   body
     nav
       .nav-wrapper
         a.brand-logo(href='#') Logo
-        ul#nav-mobile.right.hide-on-med-and-down
-          li
+        a.button-collapse(href='#', data-activates='mobile-demo')
+          i.fa.fa-bars(aria-hidden='true')
+        ul.right.hide-on-med-and-down
+          li.myli
             a(href='') Home
-          li
+          li.myli
             a(href='')
             i.fa.fa-shopping-cart(aria-hidden='true')
-          li
+          li.myli
             a(href='') Login
+        ul#mobile-demo.side-nav
+          li.myli
+            a(href='') Home
+          li.myli
+            a(href='') Cart
+          li.myli
+            a.myA(href='') Login
   block content

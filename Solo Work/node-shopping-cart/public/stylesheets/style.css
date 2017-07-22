@@ -2,10 +2,24 @@ body {
 
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-a {
-  color: #00B7FF;
+.myli:hover{
+	color: #07D6FD;
 }
 nav{
-	background-color: #272425;
+	background-color: #22B573;
+}
+#title{
+	color: #272425;
+}
+#top-margin{
+	margin-top: 1rem;
+}
+#iconMove{
+	position: relative;
+	top: 19px;
+    right: -18rem;
+}
+#img-size{
+	max-width: 50%;
+	margin-left: 6rem;
 }
