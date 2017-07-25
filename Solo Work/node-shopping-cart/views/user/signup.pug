@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  .container
+    h1 Sign Up
+    .row
+      form.col.s12(action="/user/signup", method="POST")
+        .row
+          .input-field.col.s12
+            input#email.validate(type='email', name="email")
+            label(for='email') Email
+            //- label= csrfToken
+        .row
+          .input-field.col.s12
+            input#password.validate(type='password', name='password')
+            label(for='password') Password
+        .row
+          input(type="hidden", name="_csrf", value=`${ csrfToken }`)
+          button.btn.waves-effect.waves-light(type='submit')
+            | SignIn
