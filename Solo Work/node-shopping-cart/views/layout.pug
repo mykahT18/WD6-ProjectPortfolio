@@ -12,23 +12,33 @@ html
   body
     nav
       .nav-wrapper#main-nav
-        a.brand-logo(href='#')
+        a.brand-logo(href='/')
           h1#brand logo
         a.button-collapse(href='#', data-activates='mobile-demo')
           i.fa.fa-bars(aria-hidden='true')
         ul.right.hide-on-med-and-down
           li.myli
-            a.myA(href='') Home
+            a.waves-effect.waves-light.btn(href='/') Home
           li.myli
-            a.myA(href='')
-              i.fa.fa-shopping-cart(aria-hidden='true') Cart
+            a.waves-effect.waves-light.btn(href="#") Cart
           li.myli
-            a.myA(href='') Login
+            a.dropdown-button.btn(href='#', data-activates='dropdown1') User Management!
+            ul#dropdown1.dropdown-content
+              if login
+                li
+                  a.myA(href='/user/profile') Profile
+                li
+                  a.myA(href='/user/logout') Logout
+              else
+                li
+                  a.myA(href='/user/signin') Login
+                li
+                  a.myA(href='/user/signup') Register
         ul#mobile-demo.side-nav
           li.myli
-            a.myA(href='') Home
+            a.myA(href='/') Home
           li.myli
             a.myA(href='') Cart
           li.myli
-            a.myA(href='') Login
+            a.myA(href='/user/signin') Login
   block content
