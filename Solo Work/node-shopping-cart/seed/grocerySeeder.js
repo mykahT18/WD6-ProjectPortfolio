@@ -23,7 +23,7 @@ var groceries = [
 		price: 20
 	}),
 	new Grocery({
-		imagePath: '/images/chips.jpg',
+		imagePath: '/images/chips.jpeg',
 		title: 'Frito-Lay VP Multipack Fiery Mix 20CT',
 		description: 'Frito-Lay VP Multipack Fiery Mix 20CT Frito-Lay Fiery Mix 19.625 Ounce 20 Count Bag Pack',
 		price: 6

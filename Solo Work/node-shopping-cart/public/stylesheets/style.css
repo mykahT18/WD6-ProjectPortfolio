@@ -42,3 +42,8 @@ nav{
 	margin: 0.3rem 0 0 1rem;
 
 }
+.buttons a.btn-floating.halfway-fab{
+	position: relative; 
+	right: 0px;
+	bottom: 0px;
+}

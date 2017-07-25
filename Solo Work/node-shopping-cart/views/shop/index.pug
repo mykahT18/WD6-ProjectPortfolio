@@ -1,35 +1,26 @@
 extends ../layout
 
 block content
-  .container
-      h2.center-align Welcome
-  .row
-    .col.s12.m6.l3
-      .card
-          .card-image
-            img(src='images/breads.png', id="img-size")
-            p
-              a.btn-floating.halfway-fab.waves-effect.waves-light#iconMove
-                i.fa.fa-heart(aria-hidden='true')
-            a.btn-floating.halfway-fab.waves-effect.waves-light.red
-              i.fa.fa-plus(aria-hidden='true')
-          .card-content
-            p.right-align#top-margin $4.99
-            span.card-title#title Bread
-            p 
-             |I am bread
-    .col.s12.m6.l3
-      .card
-          .card-image
-            img(src='images/breads.png', id="img-size")
-            p
-              a.btn-floating.halfway-fab.waves-effect.waves-light#iconMove
-                i.fa.fa-heart(aria-hidden='true')
-            a.btn-floating.halfway-fab.waves-effect.waves-light.red
-              i.fa.fa-plus(aria-hidden='true')
-          .card-content
-            p.right-align#top-margin $4.99
-            span.card-title#title Bread
-            p 
-             |I am bread
+	.container
+			h2.center-align Welcome
+	each val in products
+		.row    
+			.col.s12.m6.l3
+				.card
+					.row.card-image
+						.m12.col
+							img(src=val.imagePath, id="img-size")
+					.row.buttons
+						.m2.col.offset-m8.offset-s8
+							a.btn-floating.halfway-fab.waves-effect.waves-light
+								i.fa.fa-heart(aria-hidden='true')
+						.m2.col
+							a.btn-floating.halfway-fab.waves-effect.waves-light.red(href=`/addCart/${val._id}`)
+								i.fa.fa-plus(aria-hidden='true')
+					.row.card-content
+						.s12.m12.col
+							p.right-align= '$' + val.price
+							span.card-title= val.title
+							p= val.description
+							
 
