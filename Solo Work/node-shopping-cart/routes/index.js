@@ -31,5 +31,11 @@ router.get('/addCart/:id', function(req, res, next){
 router.get('/addFav/:id', function(req, res, next){
 	res.render('error');
 })
-
+router.get('/cart', function(req, res, next){
+	if(!req.session.cart){
+		return res.render('shop/cart', {products: null});
+	}
+	var cart = new Cart(req.session.cart);
+	res.render('shop/cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+});
 module.exports = router;

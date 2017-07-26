@@ -1,5 +1,32 @@
 extends ../layout
 
 block content
-	.container
-		p Cart
+	h1.center-align Cart
+	if products
+		.container
+			.wrapper
+				ul
+					each p in products
+						li
+							span.new.badge.blue= `${p.qty}`
+							strong= "Title: " + `${p.item.title}`
+							p= "Price: $" + `${p.price}`
+							div
+								.dropdown-button.btn(href='#', data-activates='dropdown2') Action
+									ul#dropdown2.dropdown-content
+										li
+											a(href="") Reduce by 1
+										li
+											a(href="") Reduce by All
+			div.totalGroup
+				div
+					strong= "Total: $" + `${totalPrice}` 
+			div.totalGroup
+				div
+					button Checkout
+	else
+		div
+			div
+				h1 No Items in Cart
+
+

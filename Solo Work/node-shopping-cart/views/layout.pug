@@ -20,7 +20,9 @@ html
           li.myli
             a.waves-effect.waves-light.btn(href='/') Home
           li.myli
-            a.waves-effect.waves-light.btn(href="#") Cart
+            a.waves-effect.waves-light.btn(href="/cart") Cart
+              if session.cart
+                span.new.badge= `${session.cart.totalQty}`
           li.myli
             a.dropdown-button.btn(href='#', data-activates='dropdown1') User Management!
             ul#dropdown1.dropdown-content
@@ -38,7 +40,7 @@ html
           li.myli
             a.myA(href='/') Home
           li.myli
-            a.myA(href='') Cart
+            a.myA(href='/cart') Cart
           li.myli
             a.myA(href='/user/signin') Login
   block content

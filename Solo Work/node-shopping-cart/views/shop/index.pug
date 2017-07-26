@@ -1,26 +1,25 @@
 extends ../layout
 
 block content
-	.container
-			h2.center-align Welcome
-	each val in products
-		.row    
-			.col.s12.m6.l3
-				.card
-					.row.card-image
-						.m12.col
-							img(src=val.imagePath, id="img-size")
-					.row.buttons
-						.m2.col.offset-m8.offset-s8
-							a.btn-floating.halfway-fab.waves-effect.waves-light(href=`/addFav/${val._id}`)
-								i.fa.fa-heart(aria-hidden='true')
-						.m2.col
-							a.btn-floating.halfway-fab.waves-effect.waves-light.red(href=`/addCart/${val._id}`)
-								i.fa.fa-plus(aria-hidden='true')
-					.row.card-content
-						.s12.m12.col
-							p.right-align= '$' + val.price
-							span.card-title= val.title
-							p= val.description
+		h2.center-align Welcome shop with us today!
+		.row 
+			each val in products   
+				.col.s12.m6.l3
+					.card.large.z-depth-3
+						.row.card-image
+							.m12.col
+								img(src=val.imagePath, id="img-size")
+						.row.buttons
+							.m2.col.offset-m8.offset-s8
+								a.btn-floating.halfway-fab.waves-effect.waves-light(href=`/addFav/${val._id}`)
+									i.fa.fa-heart(aria-hidden='true')
+							.m2.col
+								a.btn-floating.halfway-fab.waves-effect.waves-light.red(href=`/addCart/${val._id}`)
+									i.fa.fa-plus(aria-hidden='true')
+						.row.card-content
+							.s12.m12.col
+								p#cusP.right-align= '$' + val.price
+								span.card-title= val.title
+								p.truncate= val.description
 							
 

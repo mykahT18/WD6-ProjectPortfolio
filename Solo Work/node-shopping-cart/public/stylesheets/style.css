@@ -2,8 +2,36 @@ body {
 	
   font-family: 'Rubik', sans-serif;
 }
+li{
+	margin-bottom: 1rem;
+}
+.wrapper{
+	margin: 1rem;
+	padding: 1rem;
+	border: 1px solid #3A3E4B;
+}
+.totalGroup{
+	margin: 1rem;
+	padding: 1rem;
+}
+#cusP{
+	color: #F5A141;
+	font-size: 2rem;
+}
+.card .card-content .card-title{
+	font-weight: bold;
+}
 .myli:hover{
 	color: #07D6FD;
+}
+.card .card-content{
+	padding: 0px;
+}
+.card .card-image img{
+	top: 10px;
+}
+.card.large {
+	height: 450px;
 }
 nav{
 	background-color: #F0F2EF;
