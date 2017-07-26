@@ -4,12 +4,13 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/materialize.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
-    script(src='/javascripts/materialize.min.js')
-    script(src='/javascripts/main.js')
     script(src='https://use.fontawesome.com/6665b66eb7.js')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Rubik')
   body
+  block script
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script(src='/javascripts/materialize.min.js')
+    script(src='/javascripts/main.js')
     nav
       .nav-wrapper#main-nav
         a.brand-logo(href='/')
