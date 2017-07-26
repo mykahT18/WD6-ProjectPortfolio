@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+	.container
+		h1 Checkout
+		h4= "Total: $" + total
+		form(action="/checkout", method="post" id="checkout-form")
+			.row
+				.col.s12
+					.row
+						.input-field.col.s6
+							input.validate(placeholder='Name', type='text',name="name", id="name")
+							label(for='name') Name
+						.input-field.col.s6
+							input.validate(placeholder='Address', type='text', name="address", id="address")
+							label(for='address') Address
+						.input-field.col.s6
+							input.validate(placeholder='Card Holder Name', type='text', name="card-number", id="card-number")
+							label(for='card-number') Card Holder Name
+						.input-field.col.s6
+							input.validate(placeholder='Card Credit Number', type='text', name="card-name", id="card-name")
+							label(for='card-name') Card Credit Number
+						.input-field.col.s6
+							input.validate(placeholder='Expiration Month', type='text', name="card-expiry-month", id="card-expiry-month")
+							label(for='card-expiry-month') Expiration Month
+						.input-field.col.s6
+							input.validate(placeholder='Expiration Year', type='text', name="card-expiry-year", id="card-expiry-year")
+							label(for='card-expiry-year') Expiration Year
+						.input-field.col.s6
+							input.validate(placeholder='CVC', type='text', name="cvc", id="cvc")
+							label(for='cvc') CVC
+				button.waves-effect.waves-light.btn Buy Now
