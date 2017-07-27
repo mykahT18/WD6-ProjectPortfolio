@@ -4,15 +4,25 @@ var csrf = require('csurf');
 var passport = require('passport');
 
 // Importing Model
-var Grocery = require('../models/groceries');
-
+var Cart = require('../models/cart');
+var Order = require('../models/order');
 // All routes should be protected
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 // Get Profile page
 router.get('/profile', isLoggedIn, function(req, res, next){
-	res.render('user/profile');
+	Order.find({user: req.user}, function(err, orders){
+		if(err){
+			return res.write("Error!");
+		}
+		var cart;
+		orders.forEach(function(order){
+			cart = new Cart(order.cart);
+			order.items = cart.generateArray();
+		});
+		res.render('user/profile', { orders: orders });
+	});
 });
 // Get Logout Route
 router.get('/logout', function(req, res, next){
@@ -30,10 +40,17 @@ router.get('/signup', function(req, res, next){
 })
 // Post to signup page---- Registering a new user
 router.post('/signup', passport.authenticate('local.signup', {
-	successRedirect: '/user/profile',
 	failureRedirect: '/user/signup',
 	failureFlash: true
-}));
+}), function(req, res, next){
+	if(req.session.oldUrl){
+		var oldUrl = req.session.oldUrl;
+		req.session.oldUrl = null;
+		res.redirect(oldUrl);
+	}else{
+		res.redirect('/user/profile');
+	}
+});
 // Get signin page
 router.get('/signin', function(req, res, next){
 	var messages = req.flash('error');
@@ -41,10 +58,17 @@ router.get('/signin', function(req, res, next){
 });
 // Checking database if user is in database - then login
 router.post('/signin', passport.authenticate('local.signin', {
-	successRedirect: '/user/profile',
 	failureRedirect: '/user/signin',
 	failureFlash: true
-}));
+}), function(req, res, next){
+	if(req.session.oldUrl){
+		var oldUrl = req.session.oldUrl;
+		req.session.oldUrl = null;
+		res.redirect(oldUrl);
+	}else{
+		res.redirect('/user/profile');
+	}
+});
 
 module.exports = router;
 

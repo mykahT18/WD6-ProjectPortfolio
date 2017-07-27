@@ -12,12 +12,12 @@ block content
 							strong= "Title: " + `${p.item.title}`
 							p= "Price: $" + `${p.price}`
 							div
-								.dropdown-button.btn(href='#', data-activates='dropdown2') Action
+								.dropdown-button.btn(href='#', data-activates='dropdown2') Delete
 									ul#dropdown2.dropdown-content
 										li
-											a(href="") Reduce by 1
+											a(href=`/reduce/${p.item._id}`) Reduce by 1
 										li
-											a(href="") Reduce by All
+											a(href=`/remove/${p.item._id}`) Reduce by All
 			div.totalGroup
 				div
 					strong= "Total: $" + `${totalPrice}` 

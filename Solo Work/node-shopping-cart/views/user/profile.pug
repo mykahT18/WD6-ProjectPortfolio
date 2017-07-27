@@ -2,3 +2,13 @@ extends ../layout
 
 block content
   h1 Profile
+  h1.center-align My Orders
+  .wrapper
+    each order in orders
+      .collection
+        each o in order.items
+          .collection-item
+            span.new.badge.blue(data-badge-caption="")="$" + o.price
+            p="Title: " +`${o.item.title}` 
+            p= o.qty + " unit"
+      p="Total Price: $" +`${order.cart.totalPrice}`
