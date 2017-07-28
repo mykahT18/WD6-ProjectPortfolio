@@ -51,14 +51,32 @@ router.get('/remove/:id', function(req, res, next){
 });
 
 router.get('/addFav/:id', function(req, res, next){
-	res.render('error');
+	// Storing id for uri in a variable
+	if(req.isAuthenticated()){
+		console.log("------------------ Favorite Added ---------------------");
+		var groceryId = req.params.id;
+		var user = req.user;
+
+		Grocery.findById(groceryId, function(err, docs){		
+			user.favorites.push(docs)
+			console.log("Updated Users favorites", req.user);
+			user.save(function(err, result){
+				res.redirect('/');
+			});
+		});
+	}
+	else{
+		res.redirect('/user/signin')
+	}
 });
 
 router.get('/cart', function(req, res, next){
 	if(!req.session.cart){
+		console.log('🍞😬😄☺️😉😎🤓😶')
 		return res.render('shop/cart', {products: null});
 	}
 	var cart = new Cart(req.session.cart);
+	console.log('🔥💀', cart)
 	res.render('shop/cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 

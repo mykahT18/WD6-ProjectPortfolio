@@ -5,11 +5,11 @@ block content
 	if products
 		.container
 			.wrapper
-				ul
+				ul.collection.with-header
 					each p in products
-						li
-							span.new.badge.blue= `${p.qty}`
-							strong= "Title: " + `${p.item.title}`
+						li.collection-item
+							span.new.badge.blue(data-badge-caption="")= `${p.qty}`
+							h5= "Title: " + `${p.item.title}`
 							p= "Price: $" + `${p.price}`
 							div
 								.dropdown-button.btn(href='#', data-activates='dropdown2') Delete
@@ -27,6 +27,6 @@ block content
 	else
 		div
 			div
-				h1 No Items in Cart
+				h2.center-align No Items in Cart
 
 

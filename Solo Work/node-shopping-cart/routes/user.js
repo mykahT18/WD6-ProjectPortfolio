@@ -6,12 +6,25 @@ var passport = require('passport');
 // Importing Model
 var Cart = require('../models/cart');
 var Order = require('../models/order');
+var Grocery = require('../models/groceries');
 // All routes should be protected
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 // Get Profile page
 router.get('/profile', isLoggedIn, function(req, res, next){
+	
+	var favorite = req.user.favorites;
+	var fav = [];
+
+	favorite.forEach(function(f){
+		Grocery.findById(f, function(err, favorites){
+			if(err){
+				return res.redirect('/');
+			}
+			fav.push(favorites);
+		});
+	});
 	Order.find({user: req.user}, function(err, orders){
 		if(err){
 			return res.write("Error!");
@@ -21,7 +34,9 @@ router.get('/profile', isLoggedIn, function(req, res, next){
 			cart = new Cart(order.cart);
 			order.items = cart.generateArray();
 		});
-		res.render('user/profile', { orders: orders });
+		// console.log(fav[0]);
+		console.log(orders);
+		res.render('user/profile', { orders: orders, favorites: fav });
 	});
 });
 // Get Logout Route

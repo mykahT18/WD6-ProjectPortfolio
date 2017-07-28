@@ -7,9 +7,8 @@ block content
 				div#success.hidden
 			else
 				div#success
-					p= successMsg
-		
-		h2.center-align Welcome shop with us today!
+					p(style="color: red; font-weight: bold;")= `${successMsg}`
+		h2 Welcome shop with us today!
 		.row 
 			each val in products   
 				.col.s12.m6.l3

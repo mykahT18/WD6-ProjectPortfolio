@@ -2,13 +2,25 @@ extends ../layout
 
 block content
   h1 Profile
-  h1.center-align My Orders
-  .wrapper
-    each order in orders
-      .collection
-        each o in order.items
-          .collection-item
-            span.new.badge.blue(data-badge-caption="")="$" + o.price
-            p="Title: " +`${o.item.title}` 
-            p= o.qty + " unit"
-      p="Total Price: $" +`${order.cart.totalPrice}`
+  .container
+    h5.center-align My recent orders
+    .wrapper
+      ul.collection.with-header
+        each order in orders
+          each o in order.items
+            li.collection-header
+              h4=`${o.item.title}` 
+            li.collection-item
+              span.new.badge.blue(data-badge-caption="")="$" + o.price 
+              p= o.qty + " unit"
+              p="Total Price: $" +`${order.cart.totalPrice}`
+    h5.center-align Favorites
+    .wrapper
+      ul.collapsible(data-collapsible='accordion')
+        each f in favorites
+            li
+              .collapsible-header 
+                p= `${f.title}`
+              .collapsible-body
+                p= `${f.description}`
+                p= `${f.price}`

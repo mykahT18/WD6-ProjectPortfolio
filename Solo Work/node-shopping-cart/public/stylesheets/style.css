@@ -1,6 +1,10 @@
 body {
-	
+	/*background-color: #FFE0B5;*/
+	/*background-color: #D4F4DD;*/
   font-family: 'Rubik', sans-serif;
+}
+h1{
+	margin-left: 1rem;
 }
 li{
 	margin-bottom: 1rem;
@@ -8,7 +12,10 @@ li{
 .wrapper{
 	margin: 1rem;
 	padding: 1rem;
-	border: 1px solid #3A3E4B;
+	/*background-color: #E1F5E8;*/
+}
+.btn, .btn-large{
+	background-color: #26A69A;
 }
 .totalGroup{
 	margin: 1rem;
@@ -40,6 +47,7 @@ nav{
 	color: #22B573;
 }
 #main-nav{
+	background-color: #086788;
 	margin-bottom: 1rem;
 }
 #title{
@@ -57,16 +65,17 @@ nav{
 	max-width: 50%;
 	margin-left: 6rem;
 }
-.brand-logo{
-	padding: 1reml;
-}
+/*.brand-logo{
+	padding: 1rem;
+}*/
 #brand{
-	text-indent: -9999px;
+	/*text-indent: -9999px;
 	background-image: url('/images/logo2.svg');
 	background-repeat: no-repeat;
 	background-size: contain;                    
     width: 200px;
-    height: 60px;
+    height: 60px;*/
+  font-size: 3rem;
 	margin: 0.3rem 0 0 1rem;
 
 }
